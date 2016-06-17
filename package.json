@@ -1,0 +1,23 @@
+{
+  "name": "motivation",
+  "version": "1.0.0",
+  "description": "web app that tells you your precise age",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "console.log('node server is running')"
+  },
+  "keywords": [
+    "motivation",
+    "firefox",
+    "extension",
+    "new",
+    "tab",
+    "age"
+  ],
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "author": "Khayyam Saleem",
+  "license": "ISC"
+}
