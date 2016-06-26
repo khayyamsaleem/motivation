@@ -16,7 +16,10 @@
     "age"
   ],
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "jquery": "^3.0.0",
+    "mustache": "^2.2.1",
+    "pikaday": "^1.4.0"
   },
   "author": "Khayyam Saleem",
   "license": "ISC"
