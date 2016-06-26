@@ -1,30 +1,6 @@
-var data = {
-    "title": "Motivation",
-    "date": function(){
-            var today = new Date();
-            var dd = today.getDate();
-            var mm = today.getMonth() + 1;
-            var yyyy = today.getFullYear();
 
-            if (dd<10) {
-                dd='0' + dd;
-            };
-            if (mm<10) {
-                mm='0'+mm;
-            };
-            today = mm + '/' + dd + '/' + yyyy;
-            return today;
-        },
-    "name": "Khayyam Saleem",
-    "test": "this is test data",
-}
-
-var tpl = "<ul><li>{{name}}</li><li>{{title}}<li>{{date}}</li><li>{{test}}</li></ul><motivate></motivate>"
-
-var output = Mustache.render(tpl, data);
-//document.getElementById('mustache').innerHTML = output;
 var ageCalc = function() {
-	var birthday = picker.getDate();
+	var birthday = new Date(localStorage['dob']);
 	var today = new Date();
 	var duration = today - birthday;
 	var age = duration / 31556900000;
@@ -33,10 +9,16 @@ var ageCalc = function() {
 };
 
 $(document).ready(function(){
-    $('#button').click(function(e){
-        e.preventDefault();
-        $('form').fadeOut("fast");
+	if (typeof localStorage['dob'] != "undefined"){
+		$('form').remove();
         $('body').append("<div id='age'></div>");
 		setInterval(ageCalc, 80);
-    });
+	} else {
+		$('#button').click(function(e){
+			e.preventDefault();
+			localStorage['dob'] = picker.getDate();
+			$('form').fadeOut("fast");
+			$('body').append("<div id='age'></div>");
+			setInterval(ageCalc, 80);
+		});
 });
