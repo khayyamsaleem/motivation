@@ -23,19 +23,20 @@ var tpl = "<ul><li>{{name}}</li><li>{{title}}<li>{{date}}</li><li>{{test}}</li><
 
 var output = Mustache.render(tpl, data);
 //document.getElementById('mustache').innerHTML = output;
+var ageCalc = function() {
+	var birthday = picker.getDate();
+	var today = new Date();
+	var duration = today - birthday;
+	var age = duration / 31556900000;
+	$('#age').append(age);
+	console.log(age);
+};
 
 $(document).ready(function(){
     $('#button').click(function(e){
         e.preventDefault();
-        var bday = $('input[name=age]').val();
         $('form').fadeOut("fast");
-        setTimeout($('body').append("<div id='age'></div>"), 3000);
-//      $('#age').append(bday);
-        var birthday = picker.getDate();
-        var today = new Date();
-        var duration = today - birthday;
-        var age = duration / 31556900000;
-        $('#age').append(age);
-        setTimeout($('#age').fadeIn('slow'), 1000);
+        $('body').append("<div id='age'></div>");
+		setInterval(ageCalc, 500);
     });
 });
