@@ -28,7 +28,7 @@ var ageCalc = function() {
 	var today = new Date();
 	var duration = today - birthday;
 	var age = duration / 31556900000;
-	$('#age').append(age);
+	$('#age').html('<h2>' + age.toFixed(15) + '</h2>');
 	console.log(age);
 };
 
@@ -37,6 +37,6 @@ $(document).ready(function(){
         e.preventDefault();
         $('form').fadeOut("fast");
         $('body').append("<div id='age'></div>");
-		setInterval(ageCalc, 500);
+		setInterval(ageCalc, 80);
     });
 });
