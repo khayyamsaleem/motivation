@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Motivation</title>
+        <link rel="stylesheet" href="node_modules/pikaday/css/pikaday.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <form>
+            <h1 class="age-label">When were you born?</h1>
+            <footer>
+                <input type="text" id="datepicker" name="age"/>
+                <button id="button">Motivate</button>
+            </footer>
+        </form>
+    </body>
+    <scripts>
+        <script src="node_modules/mustache/mustache.js"></script>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/pikaday/pikaday.js"></script>
+        <script id = "pikaday">
+			var picker = new Pikaday(
+				{ 
+					field: $('#datepicker')[0],
+					firstDay: 1,
+					minDate: new Date(1900, 0, 1), 
+					maxDate: new Date(),
+					yearRange: [1900, (new Date()).getFullYear()],
+					bound: true,
+				}
+			);
+        </script>
+        <script src="date.js"></script>
+    </scripts>
+</html>
