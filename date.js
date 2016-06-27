@@ -11,7 +11,7 @@ var ageCalc = function() {
 $(document).ready(function(){
 	if (typeof localStorage['dob'] != "undefined"){
 		$('form').remove();
-        $('body').append("<div id='age'></div>");
+		$('body').append("<div id='age'></div>");
 		setInterval(ageCalc, 80);
 	} else {
 		$('#button').click(function(e){
@@ -21,4 +21,5 @@ $(document).ready(function(){
 			$('body').append("<div id='age'></div>");
 			setInterval(ageCalc, 80);
 		});
+	}
 });
